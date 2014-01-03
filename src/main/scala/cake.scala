@@ -8,7 +8,15 @@
  */
 
 trait Configuration {
-  def value(key: String): String
+  def value: String
+}
+
+class DefaultConfiguration extends Configuration {
+  val value = "production"
+}
+
+class TestingConfiguration extends Configuration {
+  val value = "test"
 }
 
 trait ConfigurationComponent {
@@ -19,38 +27,30 @@ trait AComponent {
   this: ConfigurationComponent =>
   val a: A
   class A {
-    val name = configuration.value("a")
+    val value = "a-" + configuration.value
   }
 }
 
 trait BComponent {
   this: ConfigurationComponent with AComponent =>
-    val a: A
-    val b: B
+  val a: A
+  val b: B
   class B {
-    val name = configuration.value("b") + a.name
+    val value = a.value + "-b-"+ configuration.value
   }
 }
 
-class ProductionConfiguration extends Configuration {
-  def value(key: String): String = "production." + key
-}
-
-class TestingConfiguration extends Configuration {
-  def value(key: String): String = "test." + key
-}
-
-object ComponentRegistry
+object Registry
   extends ConfigurationComponent
   with AComponent
   with BComponent {
 
-  val configuration = new ProductionConfiguration
+  val configuration = new DefaultConfiguration
   val a = new A()
   val b = new B()
 }
 
-object ComponentRegistryTesting
+object RegistryTesting
   extends ConfigurationComponent
   with AComponent
   with BComponent {
@@ -59,3 +59,4 @@ object ComponentRegistryTesting
   val a = new A()
   val b = new B()
 }
+

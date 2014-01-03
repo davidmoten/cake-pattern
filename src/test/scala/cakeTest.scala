@@ -7,15 +7,17 @@ class CakeTest {
   @Test
   def demonstrateRuntimeUsageOfCakePattern{
     println("using production ComponentRegistry")
-    println ("a.name="+ ComponentRegistry.a.name)
-    println ("b.name="+ ComponentRegistry.b.name)
+    println ("a.value="+ Registry.a.value)
+    println ("b.value="+ Registry.b.value)
     
     println("using testing ComponentRegistry")
-    println ("a.name="+ ComponentRegistryTesting.a.name)
-    println ("b.name="+ ComponentRegistryTesting.b.name)
+    println ("a.value="+ RegistryTesting.a.value)
+    println ("b.value="+ RegistryTesting.b.value)
     
-    assertEquals("production.a",ComponentRegistry.a.name)
-    assertEquals("test.a",ComponentRegistryTesting.a.name)
+    assertEquals("a-production",Registry.a.value)
+    assertEquals("a-test",RegistryTesting.a.value)
+    assertEquals("a-production-b-production",Registry.b.value)
+    assertEquals("a-test-b-test",RegistryTesting.b.value)
   } 
   
 }

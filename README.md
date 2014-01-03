@@ -15,7 +15,10 @@ I'm going to show you an example indicating how to convert three classes so that
 Consider these classes:
 
 ```
-trait Configuration
+trait Configuration {
+  def value: String
+}
+
 class DefaultConfiguration extends Configuration {
   val value = "production"
 }
@@ -38,7 +41,7 @@ To apply the cake pattern:
 * add an abstract singleton instance to each Component trait 
 * create a Registry object that instantiates everything 
 
-For example:
+Let's do it for our example:
 
 ```
 trait ConfigurationComponent {

@@ -33,7 +33,6 @@ trait AComponent {
 
 trait BComponent {
   this: ConfigurationComponent with AComponent =>
-  val a: A
   val b: B
   class B {
     val value = a.value + "-b-"+ configuration.value

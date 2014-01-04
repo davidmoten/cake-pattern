@@ -90,3 +90,13 @@ Now to get a singleton wired up immutable instance of B we call Registry.b (or R
 
 Obviously there's some boilerplate involved with setting up the cake pattern, in fact as design patterns go I'd label it as *invasive* and for heavy duty use might lean towards Guice or Subcut.
 See cake.scala
+
+Compiling and testing the example
+------------------------------------------
+This project is setup as a maven project and will be compiled and unit tested as below:
+
+    cd <YOUR_WORKSPACE>
+    git clone https://github.com/davidmoten/cake-pattern.git
+    cd cake-pattern
+    mvn clean test
+

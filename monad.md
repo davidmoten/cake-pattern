@@ -1,19 +1,13 @@
-<html>
+##Monads in scala.
 
-<body>
-
-<pre>
-
-Monads in scala.
-
-Monads are formally defined in a branch of mathematics called Category Theory and correspond to a useful functional design pattern in scala. This article aims to describe the formal definition and the relationship to scala.
+Monads are formally defined in a branch of mathematics called *Category Theory* and correspond to a useful functional design pattern in scala. This article aims to describe the formal definition and the relationship to scala.
 
 We firstly define Category, Functor, Natural Transformation and Monad.
 
-a Category C is 
+a **Category** C is 
 
- * a set of objects obj(C)
- * a set of morphisms hom(C) which are relations between objects
+ * a set of *objects*
+ * a set of *morphisms* which are relations between objects
  * a composition operator * for morphisms
 
 The constraints on a category are:
@@ -21,7 +15,7 @@ The constraints on a category are:
  * every object has an identity morphism
  * the composition operator is associative
 
-A Functor from Category A to Category B (A->B)
+A **Functor** from Category A to Category B (A->B)
 
  * relates objects in A to objects in B
  * relates morphisms in A to morphisms in B
@@ -33,13 +27,13 @@ A Functor also
 
 Note that for category A there is an obvious identity functor 1A:A->A
 
-A Natural Transformation mu
+A **Natural Transformation** mu
 
- * relates two functors F,G on A->B
+ * relates two functors F,G:A->B
  * relates each object a in A to a morphism mu(a): F(a)->G(a) in category B such that 
 for every morphism f:a->a' in A we have mu(a') * F(f) = G(f) * mu(a) (commutativity).
 
-a Monad has
+a **Monad** has
 
  * a functor F from Category A to Category A (endomorphic functor) 
  * a natural transformation nu:1A->F
@@ -47,11 +41,9 @@ a Monad has
  * mu is associative with F (mu * Fmu = mu * muF)
  * nu is the effective inverse of m  (mu * Fnu = mu * nuF = 1F)
 
+###Examples in Scala
 Category: objects = Scala Types (Int,String,List[String],..), morphisms = functions between types
 Functor: ToList: Types -> Types given by ToList(T)=List[T], maps morphisms obviously
 Monad: functor=ToList, nu=T->List[T],mu=List[T]xList[T]=>concatenation
- </pre>
 
-</body>
-
-</html>
+Now give me one property or theorem of monads in general and its application to the Category of types and functions in Scala.

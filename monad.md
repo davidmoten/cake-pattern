@@ -42,8 +42,15 @@ a **Monad** has
  * nu is the effective inverse of m  (mu * Fnu = mu * nuF = 1F)
 
 ###Examples in Scala
-Category: objects = Scala Types (Int,String,List[String],..), morphisms = functions between types
-Functor: ToList: Types -> Types given by ToList(T)=List[T], maps morphisms obviously
-Monad: functor=ToList, nu=T->List[T],mu=List[T]xList[T]=>concatenation
+####Category
+objects = Scala Types (Int,String,List[String],..), morphisms = functions between types
+
+####Functor
+*ToList: Types->Types* given by *ToList(t)=List[t] for t in Types*, maps morphisms obviously
+
+####Monad: 
+ * functor=*ToList*,
+ * *nu(t)=List[t]*, inserts value into a singleton list
+ * *mu(t,t)=+*, concatenation of two lists
 
 Now give me one property or theorem of monads in general and its application to the Category of types and functions in Scala.

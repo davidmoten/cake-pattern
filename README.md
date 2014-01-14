@@ -99,8 +99,10 @@ Obviously there's some boilerplate involved with setting up the cake pattern, in
 
 Going a bit further
 ----------------------
-The above example (examples.example1 in src/main/scala/examples.scala) demonstrates how to wire up singleton instances (singleton in terms of the scope of Registry) of *A*,*B* and *Configuration*. 
-Another common use case for injection is to wire in non-singleton instances (that themselves may have dependencies on singleton instances). Example 2 demonstrates this:
+The above example (examples.example1 in src/main/scala/examples.scala) demonstrates how to wire up singleton 
+instances (singleton in terms of the scope of Registry) of *A*,*B* and *Configuration*. 
+Another common use case for injection is to wire in non-singleton instances (that themselves may have dependencies 
+on singleton or non-singleton instances). Example 2 demonstrates this:
 
 These are the classes we are going to convert to use the cake pattern
 

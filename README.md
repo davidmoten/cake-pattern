@@ -105,7 +105,7 @@ The above example  demonstrates how to wire up singleton instances (singleton in
 Another common use case for injection is to wire in non-singleton instances (that themselves may have dependencies 
 on singleton or non-singleton instances). Example 2 demonstrates this:
 
-These are the classes we are going to convert to use the cake pattern
+These are the classes we are going to convert using the cake pattern:
 
 ```
 class A(configuration:Configuration, c:C){

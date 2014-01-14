@@ -5,7 +5,8 @@ Example of cake pattern in scala (type safe immutable dependency injection by us
 
 As a long term user of Guice for injecting class dependencies into constructors I was curious as to how the cake pattern in scala worked.
 
-I read Jonas Boner's blog article and understood it but thought the example could have been clearer and the method described a bit more succintly for the impatient reader like myself.
+I read [Jonas Boner's blog article](http://jonasboner.com/2008/10/06/real-world-scala-dependency-injection-di/) and followed 
+it but thought the example could have been clearer and the method described a bit more succintly for the impatient reader like myself.
 
 So what is the cake pattern?
 ----------------------------- 

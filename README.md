@@ -126,7 +126,7 @@ val a = new A(configuration,new C(configuration))
 val b = new B(configuration,a,new C(configuration))
 ```
 
-To wire in a non-singleton instance *C* into *A* and *B*:
+To wire in a non-singleton instance *C* into *A* and another into *B*:
 * wrap *C* with a *Component* trait
 * define constructor dependencies using self types
 * do *NOT* add an abstract instance of *C* to *CComponent* trait

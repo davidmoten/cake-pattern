@@ -1,8 +1,5 @@
 cake-pattern
 ============
-
-Example of cake pattern in scala (type safe immutable dependency injection by using traits and self-typing).
-
 As a long term user of Guice for injecting class dependencies into constructors I was curious as to how the cake pattern in scala worked.
 
 I read [Jonas Boner's blog article](http://jonasboner.com/2008/10/06/real-world-scala-dependency-injection-di/) and followed 
@@ -188,4 +185,3 @@ This project is setup as a maven project and will be compiled and unit tested as
     git clone https://github.com/davidmoten/cake-pattern.git
     cd cake-pattern
     mvn clean test
-

@@ -96,7 +96,8 @@ object RegistryTesting
 Now to get a singleton wired up immutable instance of *B* we call ```Registry.b``` (or ```RegistryTesting.b```) and the important thing to notice 
 is that to instantiate B within the Registry object we just called ```new B()``` without any constructor parameters.
 
-Obviously there's some boilerplate involved with setting up the cake pattern, in fact as design patterns go I'd call it bit noisy, somewhat intrusive but still elegant. For less verbosity one might consider Subcut or Guice.
+Obviously there's some boilerplate involved with setting up the cake pattern, in fact as design patterns go I'd call it bit noisy, somewhat verbose 
+ but still elegant. For less verbosity one might consider Subcut or Guice.
 
 Full source code for this example is in package examples.example1 in 
 [src/main/scala/examples.scala](https://github.com/davidmoten/cake-pattern/blob/master/src/main/scala/examples.scala)

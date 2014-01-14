@@ -34,6 +34,13 @@ class B(configuration:Configuration, a:A){
 } 
 ```
 
+Normal instantiation:
+```
+val configuration = new Configuration
+val a = new A(configuration)
+val b = new B(configuration,a)
+```
+
 To apply the cake pattern: 
 
 * wrap *Configuration*, *A* and *B* with their own traits (*Component* traits)
@@ -85,7 +92,8 @@ object RegistryTesting
 }
 ```
 
-Now to get a singleton wired up immutable instance of B we call Registry.b (or RegistryTesting.b) and the important thing to notice is that to instantiate B within the Registry object we just called ```new B()``` without any constructor parameters.
+Now to get a singleton wired up immutable instance of B we call Registry.b (or RegistryTesting.b) and the important thing to notice 
+is that to instantiate B within the Registry object we just called ```new B()``` without any constructor parameters.
 
 Obviously there's some boilerplate involved with setting up the cake pattern, in fact as design patterns go I'd call it bit noisy, somewhat verbose but still elegant. For less verbosity one might consider Subcut or Guice.
 
@@ -94,10 +102,31 @@ Going a bit further
 The above example (examples.example1 in src/main/scala/examples.scala) demonstrates how to wire up singleton instances (singleton in terms of the scope of Registry) of *A*,*B* and *Configuration*. 
 Another common use case for injection is to wire in non-singleton instances (that themselves may have dependencies on singleton instances). Example 2 demonstrates this:
 
+These are the classes we are going to convert to use the cake pattern
+
+```
+class A(configuration:Configuration, c:C){
+  val value = "a-" + configuration.value + "-" + c.value
+}
+class B(configuration:Configuration, a:A, c:C){
+  val value = a.value + "-b-" + configuration.value + "-" + c.value
+} 
+class C(configuration:Configuration){
+  val value = "c-" + configuration.value + "-" +
+        randomUUID.toString.substring(1, 5)
+}
+```
+Normal instantiation:
+```
+val configuration = new Configuration
+val a = new A(configuration,new C(configuration))
+val b = new B(configuration,a,new C(configuration))
+```
+
 To wire in a non-singleton instance *C* into *A* and *B*:
 * wrap *C* with a *Component* trait
 * define constructor dependencies using self types
-* do *not* add an abstract instance of *C* to *CComponent* trait
+* do *NOT* add an abstract instance of *C* to *CComponent* trait
 * instantiate *C* inside class *A* and class *B* using ```val c = new C()```
 
 This is how it looks:

@@ -101,10 +101,9 @@ Obviously there's some boilerplate involved with setting up the cake pattern, in
 Full source code for this example is in package examples.example1 in 
 [src/main/scala/examples.scala](https://github.com/davidmoten/cake-pattern/blob/master/src/main/scala/examples.scala)
 
-Going a bit further
-----------------------
-The above example  
-demonstrates how to wire up singleton instances (singleton in terms of the scope of Registry) of *A*,*B* and *Configuration*. 
+Injecting non-singleton instances
+-----------------------------------
+The above example  demonstrates how to wire up singleton instances (singleton in terms of the scope of Registry) of *A*,*B* and *Configuration*. 
 Another common use case for injection is to wire in non-singleton instances (that themselves may have dependencies 
 on singleton or non-singleton instances). Example 2 demonstrates this:
 

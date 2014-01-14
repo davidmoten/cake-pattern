@@ -36,7 +36,7 @@ class B(configuration:Configuration, a:A){
 
 To apply the cake pattern: 
 
-* wrap Configuration, A and B with their own traits (*Component* traits)
+* wrap *Configuration*, *A* and *B* with their own traits (*Component* traits)
 * define constructor dependencies in Components using self types   
 * add an abstract singleton instance to each Component trait 
 * create a Registry object that instantiates everything 
@@ -87,9 +87,62 @@ object RegistryTesting
 
 Now to get a singleton wired up immutable instance of B we call Registry.b (or RegistryTesting.b) and the important thing to notice is that to instantiate B within the Registry object we just called ```new B()``` without any constructor parameters.
 
-Obviously there's some boilerplate involved with setting up the cake pattern, in fact as design patterns go I'd call it bit noisy, somewhat verbose but still elegant. For less verbosity one might consider Guice or Subcut.
+Obviously there's some boilerplate involved with setting up the cake pattern, in fact as design patterns go I'd call it bit noisy, somewhat verbose but still elegant. For less verbosity one might consider Subcut or Guice.
 
-Compiling and testing the example
+Going a bit further
+----------------------
+The above example (examples.example1 in src/main/scala/examples.scala) demonstrates how to wire up singleton instances (singleton in terms of the scope of Registry) of *A*,*B* and *Configuration*. 
+Another common use case for injection is to wire in non-singleton instances (that themselves may have dependencies on singleton instances). Example 2 demonstrates this:
+
+To wire in a non-singleton instance *C* into *A* and *B*:
+* wrap *C* with a *Component* trait
+* define constructor dependencies using self types
+* do *not* add an abstract instance of *C* to *CComponent* trait
+* instantiate *C* inside class *A* and class *B* using ```val c = new C()```
+
+This is how it looks:
+```
+ import java.util.UUID._
+  
+  trait AComponent {
+    this: ConfigurationComponent with CComponent =>
+    val a: A
+    class A {
+      val c = new C()
+      val value = "a-" + configuration.value + "-" + c.value
+    }
+  }
+
+  trait BComponent {
+    this: ConfigurationComponent with AComponent with CComponent =>
+    val b: B
+    class B {
+      val c = new C()
+      val value = a.value + "-b-" + configuration.value + "-" + c.value
+    }
+  }
+
+  trait CComponent {
+    this: ConfigurationComponent =>
+    class C {
+      val value = "c-" + configuration.value + "-" +
+        randomUUID.toString.substring(1, 5)
+    }
+  }
+
+  object Registry
+    extends ConfigurationComponent
+    with AComponent
+    with BComponent
+    with CComponent {
+
+    val configuration = new DefaultConfiguration
+    val a = new A()
+    val b = new B()
+  }
+```
+
+Compiling and testing the examples
 ------------------------------------------
 This project is setup as a maven project and will be compiled and unit tested as below:
 

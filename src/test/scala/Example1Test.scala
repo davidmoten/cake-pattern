@@ -1,8 +1,9 @@
 import org.junit._
 import Assert._
+import examples.example1._
 
 @Test
-class CakeTest {
+class Example1Test {
   
   @Test
   def demonstrateRuntimeUsageOfCakePattern{

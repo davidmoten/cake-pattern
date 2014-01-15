@@ -47,26 +47,22 @@ package examples.example1 {
     }
   }
 
-  object Registry
+  trait Components
     extends ConfigurationComponent
     with AComponent
-    with BComponent {
+    with BComponent
 
+  object Registry extends Components {
     val configuration = new DefaultConfiguration
     val a = new A()
     val b = new B()
   }
 
-  object RegistryTesting
-    extends ConfigurationComponent
-    with AComponent
-    with BComponent {
-
+  object RegistryTesting extends Components {
     val configuration = new TestingConfiguration
     val a = new A()
     val b = new B()
   }
-
 }
 
 package examples.example2 {
@@ -90,7 +86,7 @@ package examples.example2 {
 
   import examples._
   import java.util.UUID._
-  
+
   trait AComponent {
     this: ConfigurationComponent with CComponent =>
     val a: A

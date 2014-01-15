@@ -8,6 +8,8 @@ it but thought the example could have been clearer and the method described a bi
 So what is the cake pattern?
 ----------------------------- 
 
+The cake pattern uses features of self types and mixins in Scala to enable apparently parameter-less construction of objects.
+
 Lets convert the classes below to use dependency injection (DI) with the cake pattern:
 
 ```

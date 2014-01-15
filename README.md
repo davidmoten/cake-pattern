@@ -179,9 +179,16 @@ Full source code for this example is in package examples.example2 in
 
 Compiling and testing the examples
 ------------------------------------------
-This project is setup as a maven project and will be compiled and unit tested as below:
+Get the source:
 
     cd <YOUR_WORKSPACE>
     git clone https://github.com/davidmoten/cake-pattern.git
     cd cake-pattern
+    
+Build with maven:
+
     mvn clean test
+    
+or build with sbt:
+
+    sbt clean test

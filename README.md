@@ -8,9 +8,7 @@ it but thought the example could have been clearer and the method described a bi
 So what is the cake pattern?
 ----------------------------- 
 
-I'm going to show you an example indicating how to convert three classes so that dependency injection can be used with the cake pattern.
-
-Consider these classes:
+Lets convert the classes below to use dependency injection (DI) with the cake pattern:
 
 ```
 trait Configuration {
@@ -32,7 +30,7 @@ class B(configuration:Configuration, a:A){
 } 
 ```
 
-Normal instantiation:
+This is how you would instantiate them without DI:
 ```
 val configuration = new Configuration
 val a = new A(configuration)
@@ -46,7 +44,7 @@ To apply the cake pattern:
 * add an abstract instance to each Component trait 
 * create a *Registry* object that instantiates everything 
 
-Let's do it for our example:
+Let's do it for our example classes:
 
 ```
 trait ConfigurationComponent {

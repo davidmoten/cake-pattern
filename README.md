@@ -42,8 +42,8 @@ val b = new B(configuration,a)
 To apply the cake pattern: 
 
 * wrap *Configuration*, *A* and *B* with their own traits (*Component* traits)
-* define constructor dependencies in Components using self types   
-* add an abstract singleton instance to each Component trait 
+* move constructor dependencies to Components using self types   
+* add an abstract instance to each Component trait 
 * create a *Registry* object that instantiates everything 
 
 Let's do it for our example:

@@ -113,12 +113,13 @@ package examples.example2 {
     }
   }
 
-  object Registry
+  trait Components
     extends ConfigurationComponent
     with AComponent
     with BComponent
-    with CComponent {
+    with CComponent
 
+  object Registry extends Components {
     val configuration = new DefaultConfiguration
     val a = new A()
     val b = new B()

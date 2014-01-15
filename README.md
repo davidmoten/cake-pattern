@@ -30,7 +30,7 @@ class B(configuration:Configuration, a:A){
 } 
 ```
 
-This is how you would instantiate them without DI:
+This is how you would instantiate the classes without DI:
 ```
 val configuration = new Configuration
 val a = new A(configuration)
@@ -117,7 +117,7 @@ class C(configuration:Configuration){
         randomUUID.toString.substring(1, 5)
 }
 ```
-Normal instantiation:
+This is how you would instantiate the classes without DI:
 ```
 val configuration = new Configuration
 val a = new A(configuration,new C(configuration))

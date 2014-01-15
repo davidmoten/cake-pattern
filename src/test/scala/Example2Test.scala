@@ -9,7 +9,7 @@ class Example2Test {
   def testThatInstancesOfCAreDifferent {
     println("a.c.value=" + Registry.a.c.value)
     println("b.c.value=" + Registry.b.c.value)
-    assertNotEquals(Registry.a.c.value, Registry.b.c.value)
+    assertFalse(Registry.a.c.value == Registry.b.c.value)
   }
 
 }

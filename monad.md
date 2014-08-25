@@ -30,8 +30,8 @@ Note that for category A there is an obvious identity functor 1A:A->A
 A **Natural Transformation** mu
 
  * relates two functors F,G:A->B
- * relates each object a in A to a morphism mu(a): F(a)->G(a) in category B such that 
-for every morphism f:a->a' in A we have mu(a') * F(f) = G(f) * mu(a) (commutativity).
+ * relates each object a in A to a morphism &mu;(a): F(a) &rarr; G(a) in category B such that 
+for every morphism f:a &rarr; a' in A we have &mu;(a') * F(f) = G(f) * &mu(a) (commutativity).
 
 a **Monad** has
 

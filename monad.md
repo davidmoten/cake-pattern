@@ -2,7 +2,7 @@
 
 Monads are formally defined in a branch of mathematics called *Category Theory* and correspond to a useful functional design pattern in scala. This article aims to describe the formal definition and the relationship to scala.
 
-We firstly define Category, Functor, Natural Transformation and Monad.
+We firstly define *Category*, *Functor*, *Natural Transformation* and *Monad*.
 
 a **Category** C is 
 

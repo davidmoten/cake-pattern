@@ -39,7 +39,7 @@ a **Monad** has
  * a natural transformation &nu;:1<sub>A</sub>&rarr;F
  * a natural transformation &mu;:FxF&rarr;F
  * &mu; is associative with F (&mu; * F&mu; = &mu; * &mu;F)
- * &nu; is the effective inverse of m  (&mu; * F&nu; = &mu; * &nu;F = 1<sub>F</sub>)
+ * &nu; is the effective inverse of &mu;  (&mu; * F&nu; = &mu; * &nu;F = 1<sub>F</sub>)
 
 ###Examples in Scala
 ####Category

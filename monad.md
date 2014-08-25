@@ -52,5 +52,13 @@ objects = Scala Types (Int,String,List[String],..), morphisms = functions betwee
  * functor=*ToList*,
  * *&nu;(t)=List[t]*, inserts value into a singleton list
  * *&mu;(t,t)=+*, concatenation of two lists
+ * 
+ ```scala
+ trait Monad[M[_]] {
+  def flatMap[A, B](x: M[A], f: A => M[B]): M[B]
+  def point[A](x: A): M[A]
+  def map[A, B](x: M[A], f: A => B): M[B] = flatMap(x, a => point(f(a)))
+}
+```
 
 Now give me one property or theorem of monads in general and its application to the Category of types and functions in Scala.

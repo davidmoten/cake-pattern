@@ -15,7 +15,7 @@ The constraints on a category are:
  * every object has an identity morphism
  * the composition operator is associative
 
-A **Functor** from Category A to Category B (A->B)
+A **Functor** from Category A to Category B (A&rarr;B)
 
  * relates objects in A to objects in B
  * relates morphisms in A to morphisms in B
@@ -25,21 +25,21 @@ A Functor also
  * preserves identity morphisms
  * preserves composition of morphisms
 
-Note that for category A there is an obvious identity functor 1A:A->A
+Note that for category A there is an obvious identity functor 1<sub>A</sub>:A&rarr;A
 
-A **Natural Transformation** mu
+A **Natural Transformation** &mu;
 
- * relates two functors F,G:A->B
- * relates each object a in A to a morphism &mu;(a): F(a) &rarr; G(a) in category B such that 
-for every morphism f:a &rarr; a' in A we have &mu;(a') * F(f) = G(f) * &mu(a) (commutativity).
+ * relates two functors F,G:A&rarr;B
+ * relates each object a in A to a morphism &mu;(a): F(a)&rarr;G(a) in category B such that 
+for every morphism f:a&rarr;a' in A we have &mu;(a') * F(f) = G(f) * &mu(a) (commutativity).
 
 a **Monad** has
 
  * a functor F from Category A to Category A (endomorphic functor) 
- * a natural transformation nu:1A->F
- * a natural transformation mu:FxF->F
- * mu is associative with F (mu * Fmu = mu * muF)
- * nu is the effective inverse of m  (mu * Fnu = mu * nuF = 1F)
+ * a natural transformation &nu;:1<sub>A</sub>&rarr;F
+ * a natural transformation &mu;:FxF&rarr;F
+ * &mu; is associative with F (&mu; * F&mu; = &mu; * &mu;F)
+ * &nu; is the effective inverse of m  (&;mu * F&nu; = &mu; * &nu;F = 1<sub>F</sub>)
 
 ###Examples in Scala
 ####Category

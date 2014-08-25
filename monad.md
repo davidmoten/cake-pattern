@@ -52,7 +52,7 @@ objects = Scala Types (Int,String,List[String],..), morphisms = functions betwee
  * functor=*ToList*,
  * *&nu;(t)=List[t]*, inserts value into a singleton list
  * *&mu;(t,t)=+*, concatenation of two lists
- * 
+ 
  ```scala
  trait Monad[M[_]] {
   def flatMap[A, B](x: M[A], f: A => M[B]): M[B]

@@ -12,7 +12,7 @@ The cake pattern uses features of self types and mixins in Scala to enable appar
 
 Lets convert the classes below to use dependency injection (DI) with the cake pattern:
 
-```
+```scala
 trait Configuration {
   def value: String
 }
@@ -33,7 +33,7 @@ class B(configuration:Configuration, a:A){
 ```
 
 This is how you would instantiate the classes without DI:
-```
+```scala
 val configuration = new Configuration
 val a = new A(configuration)
 val b = new B(configuration,a)
@@ -48,7 +48,7 @@ To apply the cake pattern:
 
 Let's do it for our example classes:
 
-```
+```scala
 trait ConfigurationComponent {
   val configuration: Configuration
 }
@@ -104,7 +104,7 @@ on singleton or non-singleton instances). Example 2 demonstrates this:
 
 These are the classes we are going to convert using the cake pattern:
 
-```
+```scala
 class A(configuration:Configuration, c:C){
   val value = "a-" + configuration.value + "-" + c.value
 }
@@ -117,7 +117,7 @@ class C(configuration:Configuration){
 }
 ```
 This is how you would instantiate the classes without DI:
-```
+```scala
 val configuration = new Configuration
 val a = new A(configuration,new C(configuration))
 val b = new B(configuration,a,new C(configuration))
@@ -130,7 +130,7 @@ To wire in a non-singleton instance *C* into *A* and another into *B*:
 * instantiate *C* inside class *A* and class *B* using ```val c = new C()```
 
 This is how it looks:
-```
+```scala
  import java.util.UUID._
   
   trait AComponent {
